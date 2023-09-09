@@ -242,7 +242,67 @@
 <div class="col-lg-6">
 <img src="images/LPU-Online-Logo.svg" class="lp-logo" alt="logo">
 </div>
-<div class="col-lg-5 ml-auto rght___algn"> <img src="images/top_rht.png" class alt></div>
+<div class="col-lg-5 ml-auto rght___algn"> <img src="images/top_rht.png" class alt id="openDrawerBtn"></div>
+<div class="drawer" id="myDrawer">
+  <!-- Close button for the drawer -->
+  <span class="close-button"  id="closeDrawerBtn">&times;</span>
+  
+  <!-- Drawer content goes here -->
+  <p style="padding-left: 20px; padding-right: 20px;padding-top: 20px;cursor: pointer;"  id="navigateToScreen" > Check Result </p>
+</div>
+
+<style>
+   .drawer {
+            width: 250px;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            right: -250px; /* Move the drawer out of the viewport */
+            background-color: #f0f0f0;
+            transition: right 0.3s;
+        }
+        
+        .drawer.open {
+            right: 0; /* Show the drawer by moving it into the viewport */
+        }
+
+        /* Style for the close button */
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+</style>
+<script>
+
+function navigateToScreen() {
+            // Replace 'specific_screen.html' with the actual URL of the screen you want to navigate to
+            window.location.href = 'auth.html';
+        }
+
+        // Add a click event listener to the paragraph element
+        const navigateToScreenParagraph = document.getElementById('navigateToScreen');
+        navigateToScreenParagraph.addEventListener('click', navigateToScreen);
+  // JavaScript to handle opening and closing the drawer
+  const openDrawerBtn = document.getElementById('openDrawerBtn');
+  const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+  const myDrawer = document.getElementById('myDrawer');
+
+  // Function to open the drawer
+  function openDrawer() {
+      myDrawer.classList.add('open');
+  }
+
+  // Function to close the drawer
+  function closeDrawer() {
+      myDrawer.classList.remove('open');
+  }
+
+  // Add click event listeners to the image and close button
+  openDrawerBtn.addEventListener('click', openDrawer);
+  closeDrawerBtn.addEventListener('click', closeDrawer);
+</script>
 </div>
 </div>
 </header>
